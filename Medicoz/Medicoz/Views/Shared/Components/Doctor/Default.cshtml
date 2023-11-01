@@ -1,0 +1,58 @@
+﻿@model List<Doctor>
+<section class="team-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <span class="sub-title">Our Doctor</span>
+            <h2>Our Dedicated Doctors Team</h2>
+            <span class="divider"></span>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="team-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                    <div class="inner-box" style="width:200px; height:300px">
+                        <figure class="image"  style="height:100%"><img src="~/uploads/doctors/@item.ImageUrl" alt="" style="height:100%"></figure>
+                        <ul class="social-links">
+                            @if(@item.FBUrl!=null){
+
+                                <li><a href="@item.FBUrl"><span class="fab fa-facebook"></span></a></li>
+                            }
+                            @if(@item.LNUrl!=null){
+
+                                <li><a href="@item.LNUrl"><span class="fab fa-linkedin-in"></span></a></li>
+                            }
+                            @if(@item.TTUrl!=null){
+
+                                <li><a href="@item.TTUrl"><span class="fab fa-twitter"></span></a></li>
+                            }
+                            @if(@item.IGUrl!=null){
+
+                                <li><a href="@item.IGUrl"><span class="fab fa-instagram"></span></a></li>
+                            }
+
+
+                            
+                        
+                        </ul>
+                        <div class="info-box">
+                            <h4 class="name"><a asp-action="detail" asp-controller="doctor" asp-route-id="@item.Id">@item.Name</a></h4>
+                            <span class="designation">@item.Department.Name</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+
+           
+            
+
+            
+
+           
+        </div>
+
+        
+    </div>
+</section>
+<!-- End Team Section -->

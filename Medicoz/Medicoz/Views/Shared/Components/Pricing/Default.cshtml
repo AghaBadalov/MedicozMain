@@ -1,0 +1,44 @@
+﻿@model List<Plan>
+<!-- Pricing Section -->
+<section class="pricing-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <span class="sub-title">Our Pricing</span>
+            <h2>Pricing Plan</h2>
+            <span class="divider"></span>
+        </div>
+
+        <div class="outer-box">
+            <div class="row">
+                <!-- Pricing Block -->
+                @foreach (var item in Model)
+                {
+                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="price-box">
+                                <h4 class="price">$@item.Price</h4>
+                                <div class="validaty">@item.Planperiod</div>
+                            </div>
+                            <h3 class="title">@item.PlanCategory.Name</h3>
+                            <ul class="features">
+                                <li>@item.Feature1</li>
+                                <li>@item.Feature2</li>
+                                <li>@item.Feature3</li>
+                                <li>@item.Feature4</li>
+                            </ul>
+                            <div class="btn-box">
+                                <a href="#" class="theme-btn">Get Offer</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                <!-- Pricing Block -->
+
+            </div>
+        </div>
+
+        <div class="sec-bottom-text">Don’t hesitate, contact us for better help and services <a href="#">Explore all Dr. Team</a></div>
+    </div>
+</section>

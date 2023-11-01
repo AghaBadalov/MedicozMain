@@ -1,0 +1,119 @@
+﻿@using Medicoz.ViewModels
+@model AppointmentVm
+<section class="doctor-detail-section">
+    <div class="auto-container">
+        <div class="row">
+            <!-- Content Side -->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12 order-2">
+                <div class="docter-detail">
+                    <h3 class="name">Dr. @Model.Doctor.Name</h3>
+                    
+                    <div class="text">@Model.Doctor.Education</div>
+                    <ul class="doctor-info-list">
+                        <li>
+                            <strong>Speciality</strong>
+                            <p>@Model.Doctor.Department.Name</p>
+                        </li>
+                        <li>
+                            <strong>Education</strong>
+                            <p>@Model.Doctor.Education/p>
+                        </li>
+                        <li>
+                            <strong>Experience</strong>
+                            <p>@Model.Doctor.Experience</p>
+                        </li>
+                        <li>
+                            <strong>Address</strong>
+                            <p>@Model.Doctor.Adress</p>
+                        </li>
+                        <li>
+                            <strong>Timing</strong>
+                            <p>EveryDay      @Model.Doctor.WorkStartTime.TimeOfDay- @Model.Doctor.WorkEndTime.TimeOfDay </p>
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            <p><a href="#">+@Model.Doctor.Phone</a></p>
+                        </li>
+                        <li>
+                            <strong>Email</strong>
+                            <p><a href="#">@Model.Doctor.Email</a></p>
+                        </li>
+                        <li>
+                            <strong>Website</strong>
+                            <p><a href="@Model.Doctor.Website">@Model.Doctor.Website</a></p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="appointment-form default-form">
+                    <div class="sec-title">
+                        <span class="sub-title">Online Appoinment</span>
+                        <h2>Make An Appointment</h2>
+                        <span class="divider"></span>
+                    </div>
+
+                    <!--Comment Form-->
+                    <form  method="post" >
+                        <div class="row">
+                            <div class="form-group col-lg-6 col-md-12">
+                                <input asp-for="FullName" placeholder="Fullname">
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-12">
+                                <input asp-for="Phone"  placeholder="Your Phone">
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-lg-12 col-md-12">
+                                <input asp-for="Email" placeholder="Your Email ">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12">
+                                <input value="@DateTime.Now" asp-for="StartDate" placeholder="Your Email ">
+                                <span asp-validation-for="StartDate" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12">
+                                <input type="hidden" value="@Model.StartTime" asp-for="@Model.AppointmentCheck" />
+                                <select asp-for="StartTime"  asp-items="@(new SelectList(ViewBag.List))"></select>
+                                <span class="text-danger" asp-validation-for="StartTime"></span >
+
+                            </div>
+                            
+
+                            <div class="form-group col-lg-12 col-md-12">
+                                <textarea asp-for="Message" placeholder="Tell us about Pasent"></textarea>
+                            </div>
+
+                            <div class="form-group col-lg-12 col-md-12">
+                                <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="btn-title">Submit Query</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <div class="sidebar">
+                    <!-- Team Block -->
+                    <div class="team-block wow fadeInUp">
+                        <div class="inner-box">
+                            <figure class="image"><img src="~/uploads/doctors/@Model.Doctor.ImageUrl" alt=""></figure>
+                            <ul class="social-links">
+                                <li><a href="@Model.Doctor.FBUrl"><span class="fab fa-facebook"></span></a></li>
+                                <li><a href="@Model.Doctor.IGUrl"><span class="fab fa-instagram"></span></a></li>
+                                <li><a href="@Model.Doctor.TTUrl"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="@Model.Doctor.LNUrl"><span class="fab fa-linkedin"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,39 @@
+﻿@model List<Service>
+<!-- Services Section -->
+<section class="services-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <span class="sub-title">OUR SERVICES</span>
+            <h2>We Care Our Patients.</h2>
+            <span class="divider"></span>
+        </div>
+
+        <div class="row">
+           
+            @foreach (var item in Model)
+            {
+                <!-- Service Block -->
+                <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        @Html.Raw(item.Icon)
+                        <h5><a href="#">@item.Tittle</a></h5>
+                        <div class="text">@item.Desc</div>
+                    </div>
+                </div>
+            }
+          
+
+            
+
+            @*<!-- Service Block -->
+            <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <span class="icon flaticon-first-aid"></span>
+                    <h5><a href="#">Intensive Care</a></h5>
+                    <div class="text">We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.</div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</section>
+<!--End Services Section -->

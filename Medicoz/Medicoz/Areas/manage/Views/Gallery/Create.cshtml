@@ -1,0 +1,27 @@
+﻿@model Gallery
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Tittle" class="form-label">Tittle</label>
+        <input asp-for="Tittle" class="form-control">
+        <span asp-validation-for="Tittle" class="text-danger"></span>
+
+    </div>
+    
+
+    <div class="mb-3">
+        <label asp-for="ImageFile" class="form-label">ImageFile</label>
+        <input asp-for="ImageFile" class="form-control">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+    </div>
+    <div>
+        <select asp-for="DepartmentId" class="form-label" asp-items="@(new SelectList(ViewBag.Departments,"Id","Name"))"></select>
+    </div>
+    
+
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

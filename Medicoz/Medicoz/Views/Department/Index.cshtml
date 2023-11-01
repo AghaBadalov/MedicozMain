@@ -1,0 +1,41 @@
+﻿@model List<Department>
+ <!-- Services Section -->
+<section class="services-section-two">
+    <div class="auto-container">
+
+        <div class="carousel-outer">
+            <div class="row">
+                <!-- service Block -->
+                
+                @foreach (var item in Model)
+                {
+                    <div class="service-block-two col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image" ><a asp-action="detail" asp-controller="department" asp-route-id="@item.Id"><img style="max-width:400px;height:300px" src="~/uploads/departments/@item.Imageurl" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <span class="icon flaticon-science"></span>
+                                    <h4><a asp-action="detail" asp-controller="department" asp-route-id="@item.Id">@item.Name</a></h4>
+                                </div>
+                                <div class="text">@item.Description1</div>
+                                <span class="icon-right flaticon-science"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+
+                
+
+                
+
+
+                <!-- service Block -->
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End service Section -->

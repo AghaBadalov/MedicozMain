@@ -1,0 +1,35 @@
+﻿@model Slider
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+        
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Tittle" class="form-label">Tittle1</label>
+                <input asp-for="Tittle"  class="form-control" >
+                <span asp-validation-for="Tittle" class="text-danger"></span>
+               
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tittle2" class="form-label">Tittle2</label>
+                <input asp-for="Tittle2" class="form-control">
+                <span asp-validation-for="Tittle2" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Desc" class="form-label">Desc</label>
+                <input asp-for="Desc" class="form-control">
+                <span asp-validation-for="Desc" class="text-danger"></span>
+
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="form-label">ImageFile</label>
+                <input asp-for="ImageFile" class="form-control">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary" class="text-danger">Create</button>
+        </form>
+    </div>
+</div>

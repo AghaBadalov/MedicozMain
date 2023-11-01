@@ -1,0 +1,44 @@
+﻿@model Product
+
+     <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Content Side-->
+                <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                     <div class="shop-single">
+                        <div class="product-details">
+                           <!--Basic Details-->
+                            <div class="basic-details">
+                                <div class="row clearfix">
+                                    <div class="image-column col-md-6 col-sm-12">
+                                    <figure class="image-box"><a href="~/uploads/products/@Model.ImageUrl" class="lightbox-image" title="Image Caption Here"><img src="~/uploads/products/@Model.ImageUrl" alt=""></a></figure>
+                                    </div>
+                                    <div class="info-column col-md-6 col-sm-12">
+                                        <div class="details-header">
+                                            <h4>@Model.Name</h4>
+
+                                        <div class="item-price">$@(Model.SalePrice - (Model.SalePrice * (Model.DiscountPrice / 100))) <del>$@Model.SalePrice</del></div>
+                                        </div>
+
+                                        <div class="text"> @Model.Desc</div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Basic Details-->
+                            
+                            <!--End Product Info Tabs-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+
+            
+
+
+    <!-- Clients Section -->
+   
+

@@ -1,0 +1,43 @@
+﻿@model List<BlogPost>
+<section class="news-section">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title text-center">
+            <span class="title">OUR BLOG</span>
+            <h2>Recent Articles and News</h2>
+            <span class="divider"></span>
+        </div>
+
+        <div class="row">
+            
+
+            <!-- News Block -->
+            
+            @foreach (var item in Model)
+            {
+                <!-- News Block -->
+                <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id"><img src="~/uploads/posts/@item.ImageUrl" alt=""></a></figure>
+                            <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id" class="date">@item.CreatedTime.ToString("dd, MMM yyy")</a>
+                        </div>
+                        <div class="lower-content">
+                            <h4><a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id">@item.Title</a></h4>
+                            <div class="text">@item.TittleDesc</div>
+                            <div class="post-info">
+                                <div class="post-author">By @item.AuthorName</div>
+                                <ul class="post-option">
+                                    <li><a href="#">@item.TotalView <i class="far fa-eye"></i></a></li>
+                                    @*<li><a href="#">@item.Comments.Count() <i class="far fa-comments"></i></a></li>*@
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!--End News Section -->

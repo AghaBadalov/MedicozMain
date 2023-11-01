@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+@model BlogPost
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Desc1" class="form-label">Desc1</label>
+                <input asp-for="Desc1" class="form-control">
+                <span asp-validation-for="Desc1" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="AuthorName" class="form-label">AuthorName</label>
+                <input asp-for="AuthorName" class="form-control">
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Desc2" class="form-label">AuthorName</label>
+                <input asp-for="Desc2" class="form-control">
+                <span asp-validation-for="Desc2" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Title</label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="TittleDesc" class="form-label">TittleDesc</label>
+                <input asp-for="TittleDesc" class="form-control">
+                <span asp-validation-for="TittleDesc" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="IGUrl" class="form-label">IGUrl</label>
+                <input asp-for="IGUrl" class="form-control">
+                <span asp-validation-for="IGUrl" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="FbUrl" class="form-label">FbUrl</label>
+                <input asp-for="FbUrl" class="form-control">
+                <span asp-validation-for="FbUrl" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="TTUrl" class="form-label">TTUrl</label>
+                <input asp-for="TTUrl" class="form-control">
+                <span asp-validation-for="TTUrl" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="form-label">ImageFile</label>
+                <input asp-for="ImageFile" class="form-control">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                
+
+            </div>
+            <div>
+                <img style="max-width:100px" src="~/uploads/ad/@Model.ImageUrl" alt="">
+                <input type="hidden" asp-for="@Model.ImageUrl" />
+            </div>
+            <button type="submit" class="btn btn-primary" class="text-danger">Update</button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,63 @@
+﻿@using Medicoz.Helpers
+@model PaginatedList<Settings>
+@{
+    int counter = ((Model.ActivePage - 1) * 6);
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Settings settings in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@settings.Id</td>
+                <td>@settings.Key</td>
+                
+                    @if(settings.IsImage!=true){
+                        <td>@settings.Value</td>
+                    }
+                    else{
+                <td><div><img style="max-width:100px" src="~/uploads/settings/@settings.ImageUrl" alt=""></div></td>
+                    }
+                
+                
+                <td>
+                    
+                    <a asp-action=@((settings.IsImage!=true)? "update" : "imageupdate") asp-controller="setting" asp-route-id="@settings.Id" class="btn btn-outline-warning m-2">Update</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div style="margin-left:500px">
+    <form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage-1)">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @((Model.ActivePage==i)? "active" : "")"><a class="page-link" asp-route-page="@i">@i</a></li>
+                }
+
+                @if (Model.HasNext)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<PlanCategory>
+@{
+    int counter = 0;
+}
+@section Js{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<table class="table">
+    <thead>
+        <a asp-action="create" asp-controller="PlanCategory" class="btn btn-success">Create</a>
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+
+
+                <td>
+                    <a asp-action="update" asp-controller="PlanCategory" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
+                    <a asp-action="softdelete" asp-controller="PlanCategory" asp-route-id="@item.Id" class="btn btn-danger delete-button">Delete</a>
+
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+@section Script{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

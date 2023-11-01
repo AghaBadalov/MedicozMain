@@ -1,0 +1,71 @@
+﻿@using Medicoz.Helpers
+@model PaginatedList<AdminMessage>
+@{
+    int counter = ((Model.ActivePage - 1) * 6);
+}
+
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-8">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">UserName</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Date Time</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (AdminMessage order in Model)
+                {
+                    counter++;
+                    <tr>
+                        <th scope="row">@counter</th>
+                        <td>@order.Id</td>
+                        <td>@order.UserName</td>
+                        <td>@order.Message</td>
+                        <td>@order.MessageTime.Date.ToString("dd MMM,yyy")</td>
+                        <td>@order.Email</td>
+                        <td>@order.Phone</td>
+
+
+
+
+
+                       
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="margin-left:500px">
+    <form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage-1)">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @((Model.ActivePage==i)? "active" : "")"><a class="page-link" asp-route-page="@i">@i</a></li>
+                }
+
+                @if (Model.HasNext)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>
+

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "ImageUpdate";
+}
+
+@model Settings
+
+<div class="col-sm-12 col-xl-8">
+    <div class="bg-light rounded h-100 p-8">
+
+        <form method="post" enctype="multipart/form-data">
+            
+            
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="form-label">ImageFile</label>
+                <input asp-for="ImageFile" class="form-control">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+
+            </div>
+            <div>
+                <img style="max-width:100px" src="~/uploads/sliders/@Model.ImageUrl" alt="">
+                <input type="hidden" asp-for="@Model.ImageUrl" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+
+
+

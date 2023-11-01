@@ -1,0 +1,68 @@
+﻿
+@model BlogPost
+
+@section Js{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-8">
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Id</th>
+                        <th scope="col">Author Name</th>
+                        <th scope="col">Tittle</th>
+                        <th scope="col">Desc1</th>
+                        <th scope="col">Desc2</th>
+                        <th scope="col">Tittledesc</th>
+                        <th scope="col">Ig</th>
+                        <th scope="col">Fb</th>
+                        <th scope="col">TT</th>
+
+                        <th scope="col">CreatedTime</th>
+
+
+                        <th scope="col">Image</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        
+                        <td>@Model.Id</td>
+                        <td>@Model.AuthorName</td>
+                        <td>@Model.Title</td>
+                        <td>@Model.Desc1</td>
+                        <td>@Model.Desc2</td>
+                        <td>@Model.TittleDesc</td>
+                        <td>@Model.IGUrl</td>
+                        <td>@Model.FbUrl</td>
+                        <td>@Model.TTUrl</td>
+                        
+
+                        <td>@Model.CreatedTime.ToString("d")</td>
+
+
+                        <td>
+                            <div><img style="max-width:100px" src="~/uploads/posts/@Model.ImageUrl" alt=""></div>
+                        </td>
+                        <td>
+                            <a asp-action="delete" asp-controller="blogpost" asp-route-id="@Model.Id" class="btn btn-outline-danger m-2 delete-button">Delete</a>
+                            <a asp-action="update" asp-controller="blogpost" asp-route-id="@Model.Id" class="btn btn-outline-warning m-2">Update</a>
+                            <a asp-action="comments" asp-controller="blogpost" asp-route-id="@Model.Id" class="btn btn-outline-warning m-2">Comments</a>
+                        </td>
+
+                    </tr>
+                
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Script{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

@@ -1,0 +1,64 @@
+﻿@model List<About>
+@{
+    int counter = 0;
+}
+@section Js{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-8">
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">BigImage</th>
+                    <th scope="col">MiddleImage</th>
+                    <th scope="col">SmallImage</th>
+                    <th scope="col">VideoUrl</th>
+
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (About about in Model)
+                {
+                    counter++;
+                    <tr>
+                        <th scope="row">@counter</th>
+                        <td>@about.Id</td>
+                        <td>@about.Tittle</td>
+                        <td>@about.Desc</td>
+                        <td>
+                            <div><img style="max-width:100px" src="~/uploads/abouts/@about.BigImageUrl" alt=""></div>
+                        </td>
+                        <td>
+                            <div><img style="max-width:100px" src="~/uploads/abouts/@about.MiddleImageUrl" alt=""></div>
+                        </td>
+                        <td>
+                            <div><img style="max-width:100px" src="~/uploads/abouts/@about.SmallImageUrl" alt=""></div>
+                        </td>
+
+                        <td>@about.VideoUrl</td>
+
+
+
+                        <td>
+                            <a asp-action="delete" asp-controller="about" asp-route-id="@about.Id" class="btn btn-outline-danger m-2 delete-button">Delete</a>
+                            <a asp-action="update" asp-controller="about" asp-route-id="@about.Id" class="btn btn-outline-warning m-2">Update</a>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        @if(counter==0){
+            <a asp-action="create" asp-controller="about" class="btn btn-outline-primary m-2">Create</a>
+        }
+    </div>
+    @section Script{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    }

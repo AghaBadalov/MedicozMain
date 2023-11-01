@@ -1,0 +1,58 @@
+﻿@using Medicoz.Enums
+@model Product
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label asp-for="Desc" class="form-label">Desc</label>
+                <input asp-for="Desc" class="form-control">
+                <span asp-validation-for="Desc" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="SalePrice" class="form-label">SalePrice</label>
+                <input asp-for="SalePrice" class="form-control">
+                <span asp-validation-for="SalePrice" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="DiscountPrice" class="form-label">DiscountPrice</label>
+                <input asp-for="DiscountPrice" class="form-control">
+                <span asp-validation-for="DiscountPrice" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="form-label">ImageFile</label>
+                <input asp-for="ImageFile" class="form-control">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+
+                <select asp-for="Status" asp-items="@Html.GetEnumSelectList<Shopstatus>()"></select>
+
+
+            </div>
+            <div>
+                <img style="max-width:100px" src="~/uploads/doctors/@Model.ImageUrl" alt="">
+                <input type="hidden" asp-for="@Model.ImageUrl" />
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" class="text-danger">Update</button>
+        </form>
+    </div>
+</div>
+
+
+

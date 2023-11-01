@@ -1,0 +1,56 @@
+﻿@using Medicoz.ViewModels
+@model AboutpageVM
+<!-- About Section -->
+@await Component.InvokeAsync("About");
+
+<!-- Fun Fact Section Two-->
+<section class="fun-fact-section-two">
+    <div class="auto-container">
+        <div class="row">
+            <!--Column-->
+            <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="count-box">
+                    <div class="icon-box"><span class="icon flaticon-user-experience"></span></div>
+                    <h4 class="counter-title">Number of Doctors</h4>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.DoctorCount">0</span>
+                </div>
+            </div>
+
+            <!--Column-->
+            <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                <div class="count-box">
+                    <div class="icon-box"><span class="icon flaticon-team"></span></div>
+                    <h4 class="counter-title">Number of departments</h4>
+                    <h4  >@Model.DepartmentCount</h4>
+                </div>
+            </div>
+
+            <!--Column-->
+            <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+                <div class="count-box">
+                    <div class="icon-box"><span class="icon flaticon-hospital"></span></div>
+                    <h4 class="counter-title">Number of appointments</h4>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.AppointmentCount">0</span>
+                </div>
+            </div>
+
+            <!--Column-->
+            <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
+                <div class="count-box">
+                    <div class="icon-box"><span class="icon flaticon-add-friend"></span></div>
+                    <h4 class="counter-title">Happy Patients</h4>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.UserCount">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Fun Fact Section Two -->
+@await Component.InvokeAsync("Doctor");
+
+@await Component.InvokeAsync("Testimonial");
+
+
+@await Component.InvokeAsync("Ad");
+
+<!--End Clients Section -->

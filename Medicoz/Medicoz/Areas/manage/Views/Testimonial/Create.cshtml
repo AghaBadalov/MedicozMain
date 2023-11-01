@@ -1,0 +1,36 @@
+﻿@model Testimonial
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Desc" class="form-label">Desc</label>
+                <input asp-for="Desc" class="form-control">
+                <span asp-validation-for="Desc" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Position" class="form-label">Position</label>
+                <input asp-for="Position" class="form-control">
+                <span asp-validation-for="Position" class="text-danger"></span>
+
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="ImageFIle" class="form-label">ImageFile</label>
+                <input asp-for="ImageFIle" class="form-control">
+                <span asp-validation-for="ImageFIle" class="text-danger"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary" class="text-danger">Create</button>
+        </form>
+    </div>
+</div>

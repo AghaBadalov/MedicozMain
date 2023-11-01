@@ -1,0 +1,49 @@
+﻿@model About
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Tittle" class="form-label">Tittle</label>
+                <input asp-for="Tittle" class="form-control">
+                <span asp-validation-for="Tittle" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Desc" class="form-label">Desc</label>
+                <input asp-for="Desc" class="form-control">
+                <span asp-validation-for="Desc" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="VideoUrl" class="form-label">VideoUrl</label>
+                <input asp-for="VideoUrl" class="form-control">
+                <span asp-validation-for="VideoUrl" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="BigImage" class="form-label">BigImage</label>
+                <input asp-for="BigImage" class="form-control">
+                <span asp-validation-for="BigImage" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="MiddleImage" class="form-label">MiddleImage</label>
+                <input asp-for="MiddleImage" class="form-control">
+                <span asp-validation-for="MiddleImage" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="SmallImage" class="form-label">SmallImage</label>
+                <input asp-for="SmallImage" class="form-control">
+                <span asp-validation-for="SmallImage" class="text-danger"></span>
+
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary" class="text-danger">Update</button>
+        </form>
+    </div>
+</div>

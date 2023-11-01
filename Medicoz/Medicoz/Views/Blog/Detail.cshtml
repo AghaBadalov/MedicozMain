@@ -1,0 +1,127 @@
+﻿@using Medicoz.ViewModels
+@model BlogVM
+
+     <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Content Side-->
+                <div class="content-side col-lg-12 col-md-12 col-sm-12">
+                    <div class="blog-post">
+                        <!-- News Block -->
+                        <div class="news-block">
+                            <div class="inner-box">
+                            <div class="image">
+                                <img src="~/uploads/posts/@Model.Post.ImageUrl" alt="" /><span class="title"></span>
+                                
+                            </div>
+                                <div class="lower-content">
+                                    <ul class="post-info">
+                                        <li><span class="far fa-user"></span> @Model.Post.AuthorName</li>
+                                    <li><span class="far fa-calendar"></span> @Model.Post.CreatedTime.ToString("dd, MMM yyy")</li>
+                                    </ul>
+                                    <h3>@Model.Post.Title</h3>
+                                    <p>@Model.Post.Desc1</p>
+                                    <blockquote>@Model.Post.TittleDesc</blockquote>
+                                    <p>@Model.Post.Desc2</p>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                    </div>
+
+
+                    
+
+                    
+
+                    <!-- Comments Area -->
+                    <div class="comments-area">
+                        <div class="group-title">
+                            <h3>Comments</h3>
+                        </div>
+                        @foreach (var item in Model.Post.Comments)
+                    {
+                        <div class="comment-box">
+                            <div class="comment">
+                                
+                                <div class="comment-info">
+                                    <div class="author-thumb"><img style="max-width:40px" src="~/assets/images/41-410093_circled-user-icon-user-profile-icon-png.png" alt=""></div>
+                                    <div class="name" style="margin-left:50px"><h6>@item.UserName</h6></div>
+                                    <div class="date">@item.CommentTime.ToString("MMM dd, yyy")</div>
+                                </div>
+                                <div class="text" style="margin-left:50px;margin-top:10px">@item.Comment</div>
+                                
+                            </div>
+                        </div>
+                    }
+                    
+
+
+
+
+                </div>
+
+                    <!--Comment Form-->
+                    <div class="comment-form">
+                        <div class="group-title">
+                            <h3>Leave a Comment</h3>
+                        </div>
+                       
+                        <form method="post">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <input asp-for="UserName"  placeholder="Name" required="">
+                                    <span asp-validation-for="UserName"></span>
+                                </div>
+
+                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                <input asp-for="Email" placeholder="Email" required="">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <textarea asp-for="Comments.Comment" placeholder="Your Comments"></textarea>
+
+                                    <span asp-validation-for="Comments.Comment"></span>
+                                </div>
+                                <div >
+
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="btn-title">Post Comment</span></button>
+                                </div>
+                                <input type="hidden"  value="@Model.Post" asp-for="@Model.Post">
+                            <input type="hidden" value="@Model.Post.Id" asp-for="@Model.Post.Id">
+                            <input type="hidden" value="@Model.Post.Desc1" asp-for="@Model.Post.Desc1">
+                            <input type="hidden" value="@Model.Post.Desc2" asp-for="@Model.Post.Desc2">
+                            <input type="hidden" value="@Model.Post.Title" asp-for="@Model.Post.Title">
+                            <input type="hidden" value="@Model.Post.Comments" asp-for="@Model.Post.Comments">
+                            <input type="hidden" value="@Model.Post.TittleDesc" asp-for="@Model.Post.TittleDesc">
+                            <input type="hidden" value="@Model.Post.AuthorName" asp-for="@Model.Post.AuthorName">
+                            <input type="hidden" value="@Model.UserName" asp-for="@Model.UserName">
+                            <input type="hidden" value="@Model.Email" asp-for="@Model.Email">
+                            <input type="hidden" value="@Model.Comments" asp-for="@Model.Comments">
+                                
+                               
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar Container -->
+@await Component.InvokeAsync("Blog");
+
+@await Component.InvokeAsync("Ad");
+
+    <!--End Clients Section -->
+
+   

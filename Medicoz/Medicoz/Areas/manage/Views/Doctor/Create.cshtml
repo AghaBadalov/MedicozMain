@@ -1,0 +1,102 @@
+﻿@model Doctor
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Education" class="form-label">Education</label>
+        <input asp-for="Education" class="form-control">
+        <span asp-validation-for="Education" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Adress" class="form-label">Adress</label>
+        <input asp-for="Adress" class="form-control">
+        <span asp-validation-for="Adress" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Experience" class="form-label">Experience</label>
+        <input asp-for="Experience" class="form-control">
+        <span asp-validation-for="Experience" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" class="form-control">
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Website" class="form-label">Website</label>
+        <input asp-for="Website" class="form-control">
+        <span asp-validation-for="Website" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label">Phone</label>
+        <input asp-for="Phone" class="form-control">
+        <span asp-validation-for="Phone" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Desc" class="form-label">Desc</label>
+        <input asp-for="Desc" class="form-control">
+        <span asp-validation-for="Desc" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="WorkStartTime" class="form-label">WorkStartTime</label>
+        <input asp-for="WorkStartTime" class="form-control">
+        <span asp-validation-for="WorkStartTime" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="WorkEndTime" class="form-label">WorkEndTime</label>
+        <input asp-for="WorkEndTime" class="form-control">
+        <span asp-validation-for="WorkEndTime" class="text-danger"></span>
+
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImageFile" class="form-label">ImageFile</label>
+        <input asp-for="ImageFile" class="form-control">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+    </div>
+    <div>
+        <select asp-for="DepartmentId" asp-items="@(new SelectList(ViewBag.Departments,"Id","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TTUrl" class="form-label">TTUrl</label>
+        <input asp-for="TTUrl" class="form-control">
+        <span asp-validation-for="TTUrl" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="FBUrl" class="form-label">FBUrl</label>
+        <input asp-for="FBUrl" class="form-control">
+        <span asp-validation-for="FBUrl" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="IGUrl" class="form-label">IGUrl</label>
+        <input asp-for="IGUrl" class="form-control">
+        <span asp-validation-for="IGUrl" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="LNUrl" class="form-label">LNUrl</label>
+        <input asp-for="LNUrl" class="form-control">
+        <span asp-validation-for="LNUrl" class="text-danger"></span>
+
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

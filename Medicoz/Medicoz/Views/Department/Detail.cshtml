@@ -1,0 +1,55 @@
+﻿@using Medicoz.ViewModels
+  @model DepartmentVm
+  <!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Content Side / Our Blog-->
+            <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12 order-2">
+                <div class="service-detail">
+                    <div style="width:300px" class="images-box">
+                        <figure class="image wow fadeIn"><a style="Width:100%" href="~/uploads/departments/@Model.Department.Imageurl" class="lightbox-image" data-fancybox="services"><img src="~/uploads/departments/@Model.Department.Imageurl" alt=""></a></figure>
+                    </div>
+
+                    <div class="content-box">
+                        <div class="title-box">
+                            <h2>@Model.Department.Name</h2>
+                            <span class="theme_color">@Model.Department.Tittle</span>
+                        </div>
+                        <p>@Model.Department.Description1</p>
+                        <p>@Model.Department.Description2</p>
+                        <!-- Two Column -->
+                       
+
+                       
+                        
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar services-sidebar">
+
+                    <!-- Category Widget -->
+                    <div class="sidebar-widget categories">
+                        <div class="widget-content">
+                            <!-- Services Category -->
+                            <ul class="services-categories">
+                                <li><a asp-action="index" asp-controller="department">All Departments</a></li>
+                                
+                                
+
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

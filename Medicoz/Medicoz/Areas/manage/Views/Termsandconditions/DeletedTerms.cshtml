@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "DeletedTerms";
+}
+
+@using Medicoz.Helpers
+@model PaginatedList<TermandCondition>
+@{
+    int counter = ((Model.ActivePage - 1) * 6);
+}
+@section Js{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-8">
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+
+                        <th scope="col">Desc</th>
+
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   @foreach (TermandCondition term in Model)
+                   {
+                    counter++;
+                    <tr>
+                        <th scope="row">@counter</th>
+                        <td>@term.Id</td>
+                        <td>@term.Name</td>
+
+                            <div class=" row col-md-6">
+                        <td>@term.Desc</td>
+                            </div>
+                        
+                        <td>
+                            <a asp-action="delete" asp-controller="termsandconditions" asp-route-id="@term.Id" class="btn btn-outline-danger m-2 delete-button">Delete</a>
+                            <a asp-action="repair" asp-controller="termsandconditions" asp-route-id="@term.Id" class="btn btn-outline-warning m-2">Repair</a>
+                        </td>
+
+                    </tr>
+                   }
+
+               </tbody>
+             </table>
+        </div>
+    </div>
+<div style="margin-left:500px">
+    <form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage-1)">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @((Model.ActivePage==i)? "active" : "")"><a class="page-link" asp-route-page="@i">@i</a></li>
+                }
+
+                @if (Model.HasNext)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>
+@section Script{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

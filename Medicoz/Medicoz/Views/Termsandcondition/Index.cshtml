@@ -1,0 +1,55 @@
+﻿@model List<TermandCondition>
+<!-- Terms And Conditions -->
+<section class="terms-and-condition">
+    <div class="auto-container">
+        <div class="tnc-tabs tabs-box">
+            <div class="row">
+                <div class="column col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                    <!--Tab Btns-->
+                    <ul class="tab-buttons">
+                        @foreach (var item in Model)
+                        {
+                            <li data-tab="#tab-@item.Id"  class="tab-btn btn-active">@item.Name</li>
+                        }
+                        
+                    </ul>
+                </div>
+
+                <div class="column col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                    <!--Tabs Container-->
+                    <div class="tabs-content">
+                        <!--Tab-->
+                        @*@foreach (var item in Model)
+                        {
+                            <div class="tab " id="tab-@item.Id">
+                                <h4>@item.Name</h4>
+                                <p>@item.Desc</p>
+                                
+                            </div>
+                        }*@
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            if(i==0){
+                                <div class="tab active-tab " id="tab-@Model[i].Id">
+                                    <h4>@Model[i].Name</h4>
+                                    <p>@Model[i].Desc</p>
+
+                                </div>
+                            }
+                            else{
+                                <div class="tab " id="tab-@Model[i].Id">
+                                    <h4>@Model[i].Name</h4>
+                                    <p>@Model[i].Desc</p>
+
+                                </div>
+                            }
+                        }
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Terms And Conditions -->

@@ -1,0 +1,64 @@
+﻿@using Medicoz.ViewModels
+@model ShopVM
+@{
+    string filter = ViewBag.filters;
+}
+     <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Content Side-->
+                <div class="content-side col-lg-12 col-md-12 col-sm-12">
+                    <div class="our-shop">
+                        <div class="shop-upper-box">
+                        
+                            <div class="orderby">
+                            <li>
+                                <a asp-action="index" asp-controller="shop" asp-route-filter="price">Price<span>Low to high</span></a>
+                            </li>
+                            <li>
+                                <a asp-action="index" asp-controller="shop" asp-route-filter="desent">Price<span>High to low</span></a>
+                            </li>
+                            <li>
+                                <a asp-action="index" asp-controller="shop" asp-route-filter="Discount">Discount<span>High to low</span></a>
+                            </li>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+                            <!-- Shop Item --> 
+                            @foreach (var item in Model.Products)
+                        {
+                            <div class="shop-item col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Id"><img src="~/uploads/products/@item.ImageUrl" alt=""></a></figure>
+                                        <span class="onsale">@item.Status</span>
+                                    </div>
+                                    <div class="lower-content">
+
+                                        <h4 class="name"><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Id">@item.Name</a></h4>
+                                        <div class="price"> $@(item.SalePrice - (item.SalePrice * (item.DiscountPrice / 100)))<del>$@(item.SalePrice )</del></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                            <!-- Shop Item --> 
+                            
+
+
+                            <!-- Shop Item --> 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+
+                    @await Component.InvokeAsync("Ad");
+
+
